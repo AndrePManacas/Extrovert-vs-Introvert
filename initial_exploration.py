@@ -1,6 +1,7 @@
 # %%
 import pandas as pd
 import numpy as np
+import plotly.express as px
 
 pd.options.display.max_columns = 999
 
@@ -31,3 +32,25 @@ print(por[por.duplicated()].shape)
 print(por.duplicated().sum())
 
 # %%
+
+fig = px.histogram(mat, x="sex", color="school")
+fig.show()
+# Alt
+mat.sex.value_counts().sort_values().plot(kind = 'barh')
+
+# %%
+# Need to organize the Plots so all print
+fig = px.histogram(mat, x="sex", color="reason")
+fig.show()
+
+fig = px.histogram(mat, x="sex", color="internet")
+fig.show()
+
+fig = px.histogram(mat, x="school", color="internet")
+fig.show()
+
+fig = px.histogram(mat, x="sex", color="activities")
+fig.show()
+
+fig = px.histogram(mat, x="sex", color="freetime")
+fig.show()
